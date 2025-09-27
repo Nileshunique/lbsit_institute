@@ -284,13 +284,21 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="pt-4 sm:pt-6">
+              <div className="pt-4 sm:pt-6 space-y-3">
                 <Link
                   to="/contact"
                   className="btn-primary inline-block w-full sm:w-auto text-center"
                 >
                   Get in Touch
                 </Link>
+                <div className="sm:ml-4 sm:inline-block">
+                  <Link
+                    to="/branches"
+                    className="btn-secondary inline-block w-full sm:w-auto text-center"
+                  >
+                    View All Branches
+                  </Link>
+                </div>
               </div>
             </div>
 

@@ -5,6 +5,7 @@ import {
   EnvelopeIcon,
 } from '@heroicons/react/24/outline';
 import { SITE_INFO, FOOTER_LINKS } from '../constants/siteData';
+import LazyImage from './LazyImage';
 
 const Footer = () => {
   return (
@@ -14,10 +15,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-12 h-10 bg-primary-400 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">
-                  {SITE_INFO.name.charAt(0)}
-                </span>
+              <div>
+                <LazyImage
+                  src={`${process.env.PUBLIC_URL}/android-chrome-192x192.png`}
+                  alt={'LBSIT Institute'}
+                  className="min-w-10 max-w-10 h-10 rounded-[50%] object-cover shadow-md"
+                  placeholder="L"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold">{SITE_INFO.name}</h3>

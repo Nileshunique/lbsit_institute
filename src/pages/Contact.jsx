@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import {
   MapPinIcon,
@@ -365,6 +366,58 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Branches Section */}
+        <section className="py-12 sm:py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
+                Multiple Locations
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base mb-6">
+                Choose the most convenient branch for your learning journey
+              </p>
+              <Link to="/branches" className="btn-primary inline-block">
+                View All Branches
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {SITE_INFO.allbranches.slice(0, 3).map((branch, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
+                    {branch.name || `Branch ${index + 1}`}
+                  </h3>
+                  <div className="flex items-start space-x-2 mb-4">
+                    <MapPinIcon className="h-4 w-4 text-primary-600 mt-1 flex-shrink-0" />
+                    <p className="text-gray-600 text-xs sm:text-sm">
+                      {branch.address}
+                    </p>
+                  </div>
+                  <div className="flex space-x-2">
+                    <a
+                      href={`tel:${branch.phone}`}
+                      className="flex-1 bg-secondary-600 text-white px-3 py-2 rounded text-xs text-center hover:bg-secondary-700 transition-colors"
+                    >
+                      Call
+                    </a>
+                    <a
+                      href={`https://wa.me/${branch.whatsapp.replace(/[^0-9]/g, '')}?text=Hi! I'd like to know more about your courses.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-green-600 text-white px-3 py-2 rounded text-xs text-center hover:bg-green-700 transition-colors"
+                    >
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { NAVIGATION, SITE_INFO } from '../constants/siteData';
+import LazyImage from './LazyImage';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,10 +16,13 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary-400 rounded-lg flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-xl">
-                {SITE_INFO.name.charAt(0)}
-              </span>
+            <div>
+              <LazyImage
+                src={`${process.env.PUBLIC_URL}/android-chrome-192x192.png`}
+                alt={'LBSIT Institute'}
+                className="min-w-10 max-w-10 h-10 rounded-[50%] object-cover shadow-md"
+                placeholder="L"
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold text-neutral-900">

@@ -1,6 +1,6 @@
 {
-  "short_name": "Gyanplanet",
-  "name": "Gyanplanet Institute - Empowering Minds, Shaping Futures",
+  "short_name": "LBSIT",
+  "name": "LBSIT Institute - Empowering Minds, Shaping Futures",
   "description": "Leading educational institute providing quality courses and resources for students to excel in their academic and professional journey.",
   "icons": [
     {
@@ -9,12 +9,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
@@ -34,12 +34,11 @@
       "sizes": "16x16"
     }
   ],
-  "start_url": "/gyanplanet_institute/",
+  "start_url": "/lbsit_institute/",
   "display": "standalone",
-  "theme_color": "#3b82f6",
   "background_color": "#ffffff",
   "orientation": "portrait-primary",
-  "scope": "/gyanplanet_institute/",
+  "scope": "/lbsit_institute/",
   "lang": "en",
   "categories": ["education", "learning", "courses"]
 }
