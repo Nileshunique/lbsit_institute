@@ -56,19 +56,14 @@ export const SITE_STATS = {
     color: "primary"
   }
 };
-
+const popularCourseIds = [1, 2, 7, 21];
 export const FOOTER_LINKS = {
   quickLinks: [
     { name: 'Courses', href: '/courses' },
     // { name: 'Books', href: '/books' }, // will add video sectio here
     { name: 'Contact', href: '/contact' }
   ],
-  courses: [
-    { name: 'Web Development', href: '/courses#web-development' },
-    { name: 'Digital Marketing', href: '/courses#digital-marketing' },
-    { name: 'Data Science', href: '/courses#data-science' },
-    { name: 'Graphic Design', href: '/courses#graphic-design' }
-  ],
+  courses: COURSES.filter((i) => popularCourseIds.includes(i.id)).map(item => ({ name: item.name, href: `/course/${item.id}` })),
   support: [
     { name: 'Help Center', href: '/help' },
     { name: 'Privacy Policy', href: '/privacy' },

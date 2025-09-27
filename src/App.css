@@ -12,6 +12,9 @@ main {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Focus styles for accessibility */
@@ -22,7 +25,8 @@ html {
 
 /* Loading animations */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

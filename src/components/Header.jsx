@@ -16,7 +16,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-primary-400 rounded-lg flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-xl">G</span>
+              <span className="text-white font-bold text-xl">
+                {SITE_INFO.name.charAt(0)}
+              </span>
             </div>
             <div>
               <h1 className="text-xl font-bold text-neutral-900">
@@ -51,7 +53,10 @@ const Header = () => {
             >
               {SITE_INFO.phone}
             </a>
-            <Link to="/contact" className="btn-primary text-sm">
+            <Link
+              to="/contact"
+              className="btn-primary text-sm text-primary-900"
+            >
               Get Started
             </Link>
           </div>

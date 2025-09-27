@@ -1,7 +1,9 @@
 import {
   PhoneIcon,
   ChatBubbleLeftRightIcon,
+  EyeIcon,
 } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants/siteData';
 import LazyImage from './LazyImage';
 
@@ -24,7 +26,7 @@ const CourseCard = ({ course }) => {
           <LazyImage
             src={`${process.env.PUBLIC_URL}/assets/images/course/logo/${course.logoName}`}
             alt={course.name}
-            className="w-16 h-16 rounded-lg object-cover shadow-md"
+            className="min-w-16 max-w-16 h-16 rounded-lg object-cover shadow-md"
             placeholder="📚"
           />
           <div>
@@ -60,42 +62,39 @@ const CourseCard = ({ course }) => {
         </div>
 
         {/* Course Details */}
-        <div className="flex justify-between items-center mb-6 p-4 bg-neutral-50 rounded-lg border border-neutral-200">
-          <div>
+        <div className="flex justify-center items-center mb-6 p-4 bg-neutral-50 rounded-lg border border-neutral-200">
+          <div className="text-center">
             <p className="text-sm text-neutral-600">Duration</p>
             <p className="font-semibold text-neutral-900">{course.duration}</p>
           </div>
-          {(course.monthlyFee || course.fee) && (
-            <div className="text-right">
-              <p className="text-sm text-neutral-600">
-                {course.monthlyFee ? 'Monthly Fee' : 'Total Fee'}
-              </p>
-              <p className="font-bold text-2xl text-secondary-500">
-                {course.monthlyFee || course.fee}
-              </p>
-              {course.monthlyFee && (
-                <p className="text-xs text-neutral-500">Total: {course.fee}</p>
-              )}
-            </div>
-          )}
         </div>
 
         {/* Action Buttons */}
-        <div className="flex space-x-3">
-          <button
-            onClick={handleCall}
-            className="flex-1 flex items-center justify-center space-x-2 btn-primary"
+        <div className="space-y-3">
+          <Link
+            to={`/course/${course.id}`}
+            className="w-full flex items-center justify-center space-x-2 bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
-            <PhoneIcon className="h-5 w-5" />
-            <span>Call Now</span>
-          </button>
-          <button
-            onClick={handleWhatsApp}
-            className="flex-1 flex items-center justify-center space-x-2 bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-          >
-            <ChatBubbleLeftRightIcon className="h-5 w-5" />
-            <span>WhatsApp</span>
-          </button>
+            <EyeIcon className="h-5 w-5" />
+            <span>View Details</span>
+          </Link>
+          
+          <div className="flex space-x-3">
+            <button
+              onClick={handleCall}
+              className="flex-1 flex items-center justify-center space-x-2 btn-primary"
+            >
+              <PhoneIcon className="h-5 w-5" />
+              <span>Call Now</span>
+            </button>
+            <button
+              onClick={handleWhatsApp}
+              className="flex-1 flex items-center justify-center space-x-2 bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+            >
+              <ChatBubbleLeftRightIcon className="h-5 w-5" />
+              <span>WhatsApp</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

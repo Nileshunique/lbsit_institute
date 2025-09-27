@@ -129,7 +129,7 @@ const Home = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden card-hover border-l-4 border-primary-400"
               >
                 <LazyImage
-                  src={`${course.logo}&w=400&h=300&fit=crop`}
+                  src={`${process.env.PUBLIC_URL}/assets/images/course/logo/${course.logoName}`}
                   alt={course.name}
                   className="w-full h-40 sm:h-48 object-cover"
                   placeholder="📚"
@@ -243,7 +243,7 @@ const Home = () => {
             {/* Contact Info */}
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <MapPinIcon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-500 mt-1 flex-shrink-0" />
+                <MapPinIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-neutral-900 mb-1 text-sm sm:text-base">
                     Address
@@ -255,7 +255,7 @@ const Home = () => {
               </div>
 
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <PhoneIcon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-500 mt-1 flex-shrink-0" />
+                <PhoneIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-neutral-900 mb-1 text-sm sm:text-base">
                     Phone
@@ -270,7 +270,7 @@ const Home = () => {
               </div>
 
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <EnvelopeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-500 mt-1 flex-shrink-0" />
+                <EnvelopeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-neutral-900 mb-1 text-sm sm:text-base">
                     Email
