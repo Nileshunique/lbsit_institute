@@ -40,7 +40,7 @@ const CourseDetail = () => {
     <>
       <SEO
         title={`${course.name} Course`}
-        description={`Learn ${course.name} at Gyanplanet Institute. ${course.description} Duration: ${course.duration}. Expert instructors and hands-on training.`}
+        description={`Learn ${course.name} at LBSIT Institute. ${course.description} Duration: ${course.duration}. Expert instructors and hands-on training.`}
         keywords={`${course.name}, ${course.category}, ${course.features.join(', ')}, course, training, institute`}
       />
 

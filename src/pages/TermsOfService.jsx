@@ -6,7 +6,7 @@ const TermsOfService = () => {
     <>
       <SEO
         title="Terms of Service"
-        description="Terms of Service for Gyanplanet Institute. Read our terms and conditions for using our educational services."
+        description="Terms of Service for LBSIT Institute. Read our terms and conditions for using our educational services."
         keywords="terms of service, terms and conditions, user agreement, educational services"
       />
 

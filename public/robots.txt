@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://Nileshunique.github.io/gyanplanet_institute/sitemap.xml
+Sitemap: https://lbsitinstitute.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
