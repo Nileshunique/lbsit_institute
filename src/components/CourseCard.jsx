@@ -17,37 +17,41 @@ const CourseCard = ({ course }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden card-hover border-l-4 border-primary-400">
       <div className="p-6">
         {/* Course Logo and Header */}
         <div className="flex items-center space-x-4 mb-4">
           <LazyImage
-            src={course.logo}
+            src={`${process.env.PUBLIC_URL}/assets/images/course/logo/${course.logoName}`}
             alt={course.name}
-            className="w-16 h-16 rounded-lg object-cover"
+            className="w-16 h-16 rounded-lg object-cover shadow-md"
             placeholder="📚"
           />
           <div>
-            <h3 className="text-xl font-bold text-gray-900">{course.name}</h3>
-            <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 text-primary-800 rounded-full">
+            <h3 className="text-xl font-bold text-neutral-900">
+              {course.name}
+            </h3>
+            <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 text-primary-700 rounded-full">
               {course.category}
             </span>
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-gray-600 mb-4 line-clamp-3">{course.description}</p>
+        <p className="text-neutral-600 mb-4 line-clamp-3">
+          {course.description}
+        </p>
 
         {/* Features */}
         <div className="mb-4">
-          <h4 className="text-sm font-semibold text-gray-900 mb-2">
+          <h4 className="text-sm font-semibold text-neutral-900 mb-2">
             What you'll learn:
           </h4>
           <div className="flex flex-wrap gap-2">
             {course.features.map((feature, index) => (
               <span
                 key={index}
-                className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-md"
+                className="px-2 py-1 text-xs bg-neutral-100 text-neutral-700 rounded-md border border-neutral-200"
               >
                 {feature}
               </span>
@@ -56,21 +60,21 @@ const CourseCard = ({ course }) => {
         </div>
 
         {/* Course Details */}
-        <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-lg">
+        <div className="flex justify-between items-center mb-6 p-4 bg-neutral-50 rounded-lg border border-neutral-200">
           <div>
-            <p className="text-sm text-gray-600">Duration</p>
-            <p className="font-semibold text-gray-900">{course.duration}</p>
+            <p className="text-sm text-neutral-600">Duration</p>
+            <p className="font-semibold text-neutral-900">{course.duration}</p>
           </div>
           {(course.monthlyFee || course.fee) && (
             <div className="text-right">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-neutral-600">
                 {course.monthlyFee ? 'Monthly Fee' : 'Total Fee'}
               </p>
-              <p className="font-bold text-2xl text-primary-600">
+              <p className="font-bold text-2xl text-secondary-500">
                 {course.monthlyFee || course.fee}
               </p>
               {course.monthlyFee && (
-                <p className="text-xs text-gray-500">Total: {course.fee}</p>
+                <p className="text-xs text-neutral-500">Total: {course.fee}</p>
               )}
             </div>
           )}
@@ -80,14 +84,14 @@ const CourseCard = ({ course }) => {
         <div className="flex space-x-3">
           <button
             onClick={handleCall}
-            className="flex-1 flex items-center justify-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
+            className="flex-1 flex items-center justify-center space-x-2 btn-primary"
           >
             <PhoneIcon className="h-5 w-5" />
             <span>Call Now</span>
           </button>
           <button
             onClick={handleWhatsApp}
-            className="flex-1 flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
+            className="flex-1 flex items-center justify-center space-x-2 bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             <ChatBubbleLeftRightIcon className="h-5 w-5" />
             <span>WhatsApp</span>

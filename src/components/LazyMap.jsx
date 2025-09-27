@@ -36,10 +36,10 @@ const LazyMap = ({ mapUrl }) => {
           title="LBSIT Institute Location"
         />
       ) : (
-        <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+        <div className="w-full h-full bg-neutral-200 animate-pulse flex items-center justify-center">
           <div className="text-center">
-            <div className="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2"></div>
-            <span className="text-gray-500">Loading map...</span>
+            <div className="w-12 h-12 bg-neutral-300 rounded-full mx-auto mb-2"></div>
+            <span className="text-neutral-500">Loading map...</span>
           </div>
         </div>
       )}

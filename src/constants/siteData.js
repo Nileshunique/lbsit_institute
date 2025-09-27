@@ -60,7 +60,7 @@ export const SITE_STATS = {
 export const FOOTER_LINKS = {
   quickLinks: [
     { name: 'Courses', href: '/courses' },
-    { name: 'Books', href: '/books' },
+    // { name: 'Books', href: '/books' }, // will add video sectio here
     { name: 'Contact', href: '/contact' }
   ],
   courses: [

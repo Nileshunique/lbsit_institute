@@ -38,9 +38,9 @@ const LazyImage = ({ src, alt, className, placeholder = null, priority = false }
   return (
     <div ref={imgRef} className={`relative ${className}`}>
       {!isLoaded && (
-        <div className={`absolute inset-0 bg-gray-200 animate-pulse rounded ${className}`}>
+        <div className={`absolute inset-0 bg-neutral-200 animate-pulse rounded ${className}`}>
           {placeholder && (
-            <div className="flex items-center justify-center h-full text-gray-400 text-2xl">
+            <div className="flex items-center justify-center h-full text-neutral-400 text-2xl">
               {placeholder}
             </div>
           )}
@@ -57,7 +57,7 @@ const LazyImage = ({ src, alt, className, placeholder = null, priority = false }
         />
       )}
       {hasError && (
-        <div className={`${className} bg-gray-100 flex items-center justify-center text-gray-400`}>
+        <div className={`${className} bg-neutral-100 flex items-center justify-center text-neutral-400`}>
           <span className="text-sm">Image not available</span>
         </div>
       )}

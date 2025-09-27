@@ -33,7 +33,7 @@ const Courses = () => {
         keywords="courses, training, education, web development, digital marketing, data science, graphic design"
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen section-bg-light">
         {/* Header Section */}
         <section className="bg-primary-600 text-white py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,13 +55,13 @@ const Courses = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:justify-between items-start">
               {/* Search Bar */}
               <div className="relative w-full max-w-md  md:mx-0">
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
                 <input
                   type="text"
                   placeholder="Search courses..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                  className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
                 />
               </div>
 
@@ -144,7 +144,7 @@ const Courses = () => {
                 href={`https://wa.me/${SITE_INFO.phone}?text=Hi! I'm interested in your courses. Can you help me choose the right one?`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto"
+                className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto shadow-lg hover:shadow-xl"
               >
                 WhatsApp Us
               </a>

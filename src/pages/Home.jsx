@@ -53,7 +53,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Link
                 to="/courses"
-                className="bg-white text-primary-600 hover:bg-gray-100 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto"
+                className="bg-white text-primary-600 hover:bg-neutral-100 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto shadow-lg hover:shadow-xl"
               >
                 {HERO_CONTENT.ctaText}
               </Link>
@@ -69,45 +69,39 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 section-bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
-              <div
-                className={`w-16 h-16 bg-${SITE_STATS.studentsEnrolled.color}-600 rounded-full flex items-center justify-center mx-auto mb-4`}
-              >
+              <div className="w-16 h-16 bg-primary-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <AcademicCapIcon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">
                 {SITE_STATS.studentsEnrolled.count}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base">
+              <p className="text-neutral-600 text-sm sm:text-base">
                 {SITE_STATS.studentsEnrolled.label}
               </p>
             </div>
             <div className="text-center">
-              <div
-                className={`w-16 h-16 bg-${SITE_STATS.coursesAvailable.color}-600 rounded-full flex items-center justify-center mx-auto mb-4`}
-              >
+              <div className="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <BookOpenIcon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">
                 {SITE_STATS.coursesAvailable.count}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base">
+              <p className="text-neutral-600 text-sm sm:text-base">
                 {SITE_STATS.coursesAvailable.label}
               </p>
             </div>
             <div className="text-center sm:col-span-2 lg:col-span-1">
-              <div
-                className={`w-16 h-16 bg-${SITE_STATS.successRate.color}-600 rounded-full flex items-center justify-center mx-auto mb-4`}
-              >
+              <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <UsersIcon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">
                 {SITE_STATS.successRate.count}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base">
+              <p className="text-neutral-600 text-sm sm:text-base">
                 {SITE_STATS.successRate.label}
               </p>
             </div>
@@ -116,13 +110,13 @@ const Home = () => {
       </section>
 
       {/* Featured Courses */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 section-bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 mb-3 sm:mb-4 px-2">
               Featured Courses
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto px-4">
               Discover our most popular courses designed to help you achieve
               your career goals
             </p>
@@ -132,7 +126,7 @@ const Home = () => {
             {featuredCourses.map((course, index) => (
               <div
                 key={course.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden card-hover"
+                className="bg-white rounded-xl shadow-lg overflow-hidden card-hover border-l-4 border-primary-400"
               >
                 <LazyImage
                   src={`${course.logo}&w=400&h=300&fit=crop`}
@@ -142,17 +136,17 @@ const Home = () => {
                   priority={index === 0}
                 />
                 <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-2">
                     {course.name}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2 text-sm sm:text-base">
+                  <p className="text-neutral-600 mb-4 line-clamp-2 text-sm sm:text-base">
                     {course.description}
                   </p>
                   <div className="flex justify-between items-center">
-                    <span className="text-xl sm:text-2xl font-bold text-primary-600">
+                    <span className="text-xl sm:text-2xl font-bold text-secondary-500">
                       {course.monthlyFee || course.fee}
                     </span>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs sm:text-sm text-neutral-500">
                       {course.duration}
                     </span>
                   </div>
@@ -173,14 +167,14 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 section-bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 mb-4 sm:mb-6">
                 Why Choose {SITE_INFO.name}?
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg text-neutral-600 mb-4 sm:mb-6">
                 We are committed to providing high-quality education that
                 empowers students to achieve their dreams. Our experienced
                 instructors, comprehensive curriculum, and hands-on approach
@@ -188,34 +182,34 @@ const Home = () => {
               </p>
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 bg-primary-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-neutral-700 text-sm sm:text-base">
                     Expert instructors with industry experience
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 bg-primary-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-neutral-700 text-sm sm:text-base">
                     Hands-on projects and real-world applications
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 bg-primary-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-neutral-700 text-sm sm:text-base">
                     Job placement assistance and career guidance
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 bg-primary-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-neutral-700 text-sm sm:text-base">
                     Flexible learning schedules
                   </span>
                 </div>
@@ -234,13 +228,13 @@ const Home = () => {
       </section>
 
       {/* Contact & Map Section */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 section-bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 mb-3 sm:mb-4">
               Visit Our Campus
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 px-4">
+            <p className="text-lg sm:text-xl text-neutral-600 px-4">
               Come and experience our learning environment firsthand
             </p>
           </div>
@@ -249,21 +243,21 @@ const Home = () => {
             {/* Contact Info */}
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <MapPinIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 mt-1 flex-shrink-0" />
+                <MapPinIcon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">
+                  <h3 className="font-semibold text-neutral-900 mb-1 text-sm sm:text-base">
                     Address
                   </h3>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <p className="text-neutral-600 text-sm sm:text-base">
                     {SITE_INFO.address}
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <PhoneIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 mt-1 flex-shrink-0" />
+                <PhoneIcon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">
+                  <h3 className="font-semibold text-neutral-900 mb-1 text-sm sm:text-base">
                     Phone
                   </h3>
                   <a
@@ -276,9 +270,9 @@ const Home = () => {
               </div>
 
               <div className="flex items-start space-x-3 sm:space-x-4">
-                <EnvelopeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 mt-1 flex-shrink-0" />
+                <EnvelopeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">
+                  <h3 className="font-semibold text-neutral-900 mb-1 text-sm sm:text-base">
                     Email
                   </h3>
                   <a

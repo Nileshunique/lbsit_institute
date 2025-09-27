@@ -3,7 +3,7 @@ export const COURSES = [
   {
     "id": 1,
     "name": "MS-Office",
-    "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "01_ms_office.webp",
     "description": "Master Microsoft Office Suite including Word, Excel, PowerPoint. Essential skills for any professional environment.",
     "duration": "3 months",
     "features": ["Word Processing", "Spreadsheets", "Presentations"],
@@ -37,7 +37,7 @@ export const COURSES = [
   {
     "id": 2,
     "name": "Tally Prime (GST) with Accounting",
-    "logo": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "02_tally_prime.webp",
     "description": "Learn complete accounting with Tally Prime including GST compliance, inventory management, and financial reporting.",
     "duration": "3 months",
     "features": ["GST Compliance", "Inventory Management", "Financial Reports", "Tax Filing"],
@@ -68,7 +68,7 @@ export const COURSES = [
   {
     "id": 3,
     "name": "Adobe Photoshop",
-    "logo": "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "03_adobe_photoshop.webp",
     "description": "Master photo editing, digital art, and graphic design with Adobe Photoshop. Create stunning visuals and manipulate images professionally.",
     "duration": "1 Month",
     "features": ["Photo Editing", "Digital Art", "Layer Management", "Color Correction"],
@@ -98,7 +98,7 @@ export const COURSES = [
   {
     "id": 4,
     "name": "Adobe CorelDraw",
-    "logo": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "04_adobe_coreldraw.webp",
     "description": "Learn vector graphics design with CorelDraw. Create logos, illustrations, and professional graphics for print and digital media.",
     "duration": "1 Month",
     "features": ["Vector Graphics", "Logo Design", "Illustrations", "Print Design"],
@@ -125,7 +125,7 @@ export const COURSES = [
   {
     "id": 5,
     "name": "Adobe Illustrator",
-    "logo": "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "05_adobe_illustrator.webp",
     "description": "Master vector illustration and graphic design with Adobe Illustrator. Create scalable graphics, logos, and artwork.",
     "duration": "1 Month",
     "features": ["Vector Illustration", "Logo Creation", "Typography", "Brand Design"],
@@ -152,7 +152,7 @@ export const COURSES = [
   {
     "id": 6,
     "name": "Adobe InDesign",
-    "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "06_adobe_in_design.webp",
     "description": "Learn professional page layout and desktop publishing with Adobe InDesign. Design magazines, brochures, and books.",
     "duration": "1 month",
     "features": ["Page Layout", "Typography", "Print Design", "Digital Publishing"],
@@ -178,7 +178,7 @@ export const COURSES = [
   {
     "id": 7,
     "name": "Advanced Excel with AI & ChatGPT",
-    "logo": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "07_advance_excel.webp",
     "description": "Master advanced Excel functions, data analysis, and integrate AI tools like ChatGPT for enhanced productivity and automation.",
     "duration": "2 months",
     "features": ["Advanced Formulas", "Data Analysis", "AI Integration", "Automation"],
@@ -211,7 +211,7 @@ export const COURSES = [
   {
     "id": 8,
     "name": "English Typing",
-    "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop&crop=center&q=75",
+    "logoName": "08_english_typing.webp",
     "description": "Improve your typing speed and accuracy in both Hindi and English. Essential skill for data entry and office work.",
     "duration": "4 months",
     "features": ["Speed Building", "Accuracy Training", "Bilingual Typing", "Practice Tests"],
@@ -239,7 +239,7 @@ export const COURSES = [
   {
     "id": 9,
     "name": "AutoCAD 2D & 3D",
-    "logo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center",
+    "logoName": "09_autocad_2d_3d.webp",
     "description": "Learn computer-aided design with AutoCAD. Create precise 2D drawings and 3D models for engineering and architecture.",
     "duration": "2 months",
     "features": ["2D Drafting", "3D Modeling", "Technical Drawing", "Engineering Design"],
@@ -267,7 +267,7 @@ export const COURSES = [
   {
     "id": 10,
     "name": "C & C++ Programming",
-    "logo": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center",
+    "logoName": "10_c_and_c++.webp",
     "description": "Master the fundamentals of programming with C and C++. Build strong foundation for software development and system programming.",
     "duration": "4 months",
     "features": ["Programming Basics", "Data Structures", "Object-Oriented Programming", "System Programming"],
@@ -299,7 +299,7 @@ export const COURSES = [
   {
     "id": 11,
     "name": "Java Programming",
-    "logo": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center",
+    "logoName": "11_java_programming.webp",
     "description": "Learn Java programming from basics to advanced concepts. Build enterprise applications and understand object-oriented programming.",
     "duration": "2 months",
     "features": ["OOP Concepts", "Enterprise Development", "Spring Framework", "Database Integration"],
@@ -331,7 +331,7 @@ export const COURSES = [
   {
     "id": 12,
     "name": "Python Programming",
-    "logo": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center",
+    "logoName": "12_python_programming.webp",
     "description": "Master Python programming for web development, data analysis, and automation. One of the most versatile programming languages.",
     "duration": "2 months",
     "features": ["Data Analysis", "Automation", "Machine Learning Basics"],
@@ -360,7 +360,7 @@ export const COURSES = [
   {
     "id": 13,
     "name": "Advanced Internet",
-    "logo": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=100&fit=crop&crop=center",
+    "logoName": "13_advance_internet.webp",
     "description": "Master advanced internet technologies, web services, cloud computing, and digital communication tools for modern business.",
     "duration": "1 month",
     "features": ["Web Technologies", "Cloud Services", "Digital Communication", "Online Security"],
@@ -388,7 +388,7 @@ export const COURSES = [
   {
     "id": 14,
     "name": "Video Editing",
-    "logo": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=100&h=100&fit=crop&crop=center",
+    "logoName": "14_video_editing.webp",
     "description": "Learn professional video editing techniques using industry-standard software. Create engaging content for social media and marketing.",
     "duration": "1 month",
     "features": ["Video Editing", "Color Grading", "Audio Editing", "Motion Graphics"],
@@ -415,7 +415,7 @@ export const COURSES = [
   {
     "id": 15,
     "name": "Data Analytics",
-    "logo": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop&crop=center",
+    "logoName": "15_data_analytics.webp",
     "description": "Learn data analysis, visualization, and business intelligence. Work with real datasets and make data-driven decisions.",
     "duration": "6 months",
     "features": ["Data Analysis", "Visualization", "Statistical Analysis", "Business Intelligence"],
@@ -443,7 +443,7 @@ export const COURSES = [
   {
     "id": 18,
     "name": "Revit",
-    "logo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center",
+    "logoName": "18_revit.webp",
     "description": "Learn Building Information Modeling (BIM) with Autodesk Revit. Design and document building projects with precision.",
     "duration": "2 months",
     "features": ["BIM Modeling", "Architectural Design", "MEP Systems", "Project Documentation"],
@@ -469,7 +469,7 @@ export const COURSES = [
   {
     "id": 19,
     "name": "NX-CAD",
-    "logo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center",
+    "logoName": "19_nx_cad.webp",
     "description": "Master advanced CAD design with Siemens NX. Professional 3D modeling and simulation for engineering applications.",
     "duration": "2 months",
     "features": ["3D Modeling", "Simulation", "Engineering Design", "Manufacturing"],
@@ -494,7 +494,7 @@ export const COURSES = [
   {
     "id": 20,
     "name": "Stenography Course",
-    "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=100&h=100&fit=crop&crop=center",
+    "logoName": "20_stenography.webp",
     "description": "Learn shorthand writing and stenography for court reporting, secretarial work, and fast note-taking in professional settings.",
     "duration": "3 months",
     "features": ["Shorthand Writing", "Speed Building", "Court Reporting", "Professional Documentation"],
@@ -519,7 +519,7 @@ export const COURSES = [
   {
     "id": 21,
     "name": "Spoken English",
-    "logo": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=100&h=100&fit=crop&crop=center",
+    "logoName": "21_spoken_english.webp",
     "description": "Improve your English speaking skills, pronunciation, and confidence. Essential for career growth and communication.",
     "duration": "3 months",
     "features": ["Speaking Practice", "Pronunciation", "Grammar", "Confidence Building"],
@@ -545,7 +545,7 @@ export const COURSES = [
   {
     "id": 22,
     "name": "Computer Hardware",
-    "logo": "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=100&h=100&fit=crop&crop=center",
+    "logoName": "22_computer_hardware.webp",
     "description": "Learn computer hardware assembly, troubleshooting, and maintenance. Understand components and repair techniques.",
     "duration": "3 months",
     "features": ["Hardware Assembly", "Troubleshooting", "Component Knowledge", "Repair Techniques"],

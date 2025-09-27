@@ -6,14 +6,20 @@ const PerformanceMonitor = () => {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if (entry.entryType === 'largest-contentful-paint') {
-          console.log('LCP:', entry.startTime);
+          if (process.env.NODE_ENV === 'development') {
+            console.log('LCP:', entry.startTime);
+          }
         }
         if (entry.entryType === 'first-input') {
-          console.log('FID:', entry.processingStart - entry.startTime);
+          if (process.env.NODE_ENV === 'development') {
+            console.log('FID:', entry.processingStart - entry.startTime);
+          }
         }
         if (entry.entryType === 'layout-shift') {
           if (!entry.hadRecentInput) {
-            console.log('CLS:', entry.value);
+            if (process.env.NODE_ENV === 'development') {
+              console.log('CLS:', entry.value);
+            }
           }
         }
       }
@@ -24,7 +30,9 @@ const PerformanceMonitor = () => {
     // Monitor page load time
     window.addEventListener('load', () => {
       const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-      console.log('Page Load Time:', loadTime + 'ms');
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Page Load Time:', loadTime + 'ms');
+      }
     });
 
     return () => observer.disconnect();

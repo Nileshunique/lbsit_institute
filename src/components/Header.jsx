@@ -7,33 +7,35 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = path => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header className="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-primary-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-primary-400 rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-xl">G</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">{SITE_INFO.name}</h1>
-              <p className="text-xs text-gray-600">{SITE_INFO.tagline}</p>
+              <h1 className="text-xl font-bold text-neutral-900">
+                {SITE_INFO.name}
+              </h1>
+              <p className="text-xs text-neutral-600">{SITE_INFO.tagline}</p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {NAVIGATION.map((item) => (
+            {NAVIGATION.map(item => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                   isActive(item.href)
                     ? 'text-primary-600 bg-primary-50'
-                    : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                    : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                 }`}
               >
                 {item.name}
@@ -45,14 +47,11 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <a
               href={`tel:${SITE_INFO.phone}`}
-              className="text-sm text-gray-600 hover:text-primary-600"
+              className="text-sm text-neutral-600 hover:text-primary-600"
             >
               {SITE_INFO.phone}
             </a>
-            <Link
-              to="/contact"
-              className="btn-primary text-sm"
-            >
+            <Link to="/contact" className="btn-primary text-sm">
               Get Started
             </Link>
           </div>
@@ -60,7 +59,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+            className="md:hidden p-2 rounded-md text-neutral-700 hover:text-primary-600 hover:bg-neutral-50"
           >
             {isMenuOpen ? (
               <XMarkIcon className="h-6 w-6" />
@@ -72,9 +71,9 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-neutral-200">
             <nav className="flex flex-col space-y-2">
-              {NAVIGATION.map((item) => (
+              {NAVIGATION.map(item => (
                 <Link
                   key={item.name}
                   to={item.href}
@@ -82,16 +81,16 @@ const Header = () => {
                   className={`px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     isActive(item.href)
                       ? 'text-primary-600 bg-primary-50'
-                      : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                      : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-4 border-t border-neutral-200">
                 <a
                   href={`tel:${SITE_INFO.phone}`}
-                  className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-600"
+                  className="block px-3 py-2 text-sm text-neutral-600 hover:text-primary-600"
                 >
                   {SITE_INFO.phone}
                 </a>

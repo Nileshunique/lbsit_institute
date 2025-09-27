@@ -8,21 +8,21 @@ import { SITE_INFO, FOOTER_LINKS } from '../constants/siteData';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-neutral-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary-400 rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">G</span>
               </div>
               <div>
                 <h3 className="text-xl font-bold">{SITE_INFO.name}</h3>
-                <p className="text-sm text-gray-400">{SITE_INFO.tagline}</p>
+                <p className="text-sm text-neutral-400">{SITE_INFO.tagline}</p>
               </div>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-neutral-400 mb-6">
               {SITE_INFO.description}
             </p>
             
@@ -32,7 +32,7 @@ const Footer = () => {
                 href={SITE_INFO.socialMedia.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
               >
                 <span className="sr-only">Facebook</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ const Footer = () => {
                 href={SITE_INFO.socialMedia.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
               >
                 <span className="sr-only">Twitter</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ const Footer = () => {
                 href={SITE_INFO.socialMedia.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="text-neutral-400 hover:text-secondary-500 transition-colors duration-200"
               >
                 <span className="sr-only">Instagram</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ const Footer = () => {
                 href={SITE_INFO.socialMedia.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
+                className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
               >
                 <span className="sr-only">LinkedIn</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -83,7 +83,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -100,7 +100,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -114,23 +114,23 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <MapPinIcon className="h-5 w-5 text-primary-400 mt-1 flex-shrink-0" />
-                <p className="text-gray-400 text-sm">{SITE_INFO.address}</p>
+                <MapPinIcon className="h-5 w-5 text-secondary-500 mt-1 flex-shrink-0" />
+                <p className="text-neutral-400 text-sm">{SITE_INFO.address}</p>
               </div>
               <div className="flex items-center space-x-3">
-                <PhoneIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                <PhoneIcon className="h-5 w-5 text-secondary-500 flex-shrink-0" />
                 <a
                   href={`tel:${SITE_INFO.phone}`}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                 >
                   {SITE_INFO.phone}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <EnvelopeIcon className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                <EnvelopeIcon className="h-5 w-5 text-secondary-500 flex-shrink-0" />
                 <a
                   href={`mailto:${SITE_INFO.email}`}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                 >
                   {SITE_INFO.email}
                 </a>
@@ -140,15 +140,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-neutral-400 text-sm">
             © {new Date().getFullYear()} {SITE_INFO.name}. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+            <Link to="/privacy" className="text-neutral-400 hover:text-primary-400 text-sm transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+            <Link to="/terms" className="text-neutral-400 hover:text-primary-400 text-sm transition-colors duration-200">
               Terms of Service
             </Link>
           </div>

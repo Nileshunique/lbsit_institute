@@ -7,29 +7,44 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Primary color: Parrot Green (#75fd71) - 30% of design
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50: '#f0fef0',
+          100: '#dcfcdc',
+          200: '#bbf7bb',
+          300: '#8ef08a',
+          400: '#75fd71', // Main parrot green
+          500: '#4ade4a',
+          600: '#2fb82f',
+          700: '#259025',
+          800: '#1f7020',
+          900: '#1a5c1a',
         },
+        // Secondary color: Orange (#ff6b35) - 10% of design  
         secondary: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#ff6b35', // Main orange
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+        },
+        // Neutral colors: White and grays - 60% of design
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
         }
       },
       fontFamily: {

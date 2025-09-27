@@ -86,7 +86,7 @@ const Contact = () => {
         keywords="contact, admission, inquiry, phone, email, address, LBSIT institute"
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen section-bg-light">
         {/* Header Section */}
         <section className="bg-primary-600 text-white py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,9 +114,9 @@ const Contact = () => {
                 </h2>
 
                 {submitStatus === 'success' && (
-                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3">
-                    <CheckCircleIcon className="h-5 w-5 text-green-600" />
-                    <p className="text-green-800">
+                  <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-lg flex items-center space-x-3">
+                    <CheckCircleIcon className="h-5 w-5 text-primary-600" />
+                    <p className="text-primary-800">
                       Thank you! Your message has been sent successfully. We'll
                       get back to you soon.
                     </p>
@@ -350,14 +350,14 @@ const Contact = () => {
                       href={`https://wa.me/${SITE_INFO.whatsapp}?text=Hi! I'd like to know more about your courses.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-200 text-sm sm:text-base"
+                      className="w-full flex items-center justify-center space-x-2 bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-200 text-sm sm:text-base shadow-lg hover:shadow-xl"
                     >
                       <span>💬</span>
                       <span>WhatsApp Us</span>
                     </a>
                     <a
                       href={`tel:${SITE_INFO.phone}`}
-                      className="w-full flex items-center justify-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-200 text-sm sm:text-base"
+                      className="w-full flex items-center justify-center space-x-2 btn-secondary text-sm sm:text-base"
                     >
                       <PhoneIcon className="h-4 w-4 sm:h-5 sm:w-5" />
                       <span>Call Now</span>
