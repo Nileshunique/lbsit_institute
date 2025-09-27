@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://Nileshunique.github.io/gyanplanet_institute/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Allow all other content
+Allow: /courses/
+Allow: /books/
+Allow: /contact/
+Allow: /static/
+Allow: /images/

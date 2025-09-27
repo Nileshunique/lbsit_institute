@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/lbsit_institute/static/css/main.7d47ed94.css",
+    "main.js": "/lbsit_institute/static/js/main.4509c05a.js",
+    "static/js/599.ff5cb7de.chunk.js": "/lbsit_institute/static/js/599.ff5cb7de.chunk.js",
+    "static/js/453.0a05aed3.chunk.js": "/lbsit_institute/static/js/453.0a05aed3.chunk.js",
+    "index.html": "/lbsit_institute/index.html",
+    "main.7d47ed94.css.map": "/lbsit_institute/static/css/main.7d47ed94.css.map",
+    "main.4509c05a.js.map": "/lbsit_institute/static/js/main.4509c05a.js.map",
+    "599.ff5cb7de.chunk.js.map": "/lbsit_institute/static/js/599.ff5cb7de.chunk.js.map",
+    "453.0a05aed3.chunk.js.map": "/lbsit_institute/static/js/453.0a05aed3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7d47ed94.css",
+    "static/js/main.4509c05a.js"
+  ]
+}
