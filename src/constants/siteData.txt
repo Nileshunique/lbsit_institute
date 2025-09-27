@@ -1,0 +1,277 @@
+export const SITE_INFO = {
+  name: "L.B.S.I.T. Institute",
+  tagline: "Empower Your Dreams, Through Education",
+  description: "Leading educational institute providing quality courses and resources for students to excel in their academic and professional journey.",
+  email: "lbsitinstitute2012@gmail.com",
+  phone: "+91-9971556986",
+  whatsapp: "+919971556986",
+  address: "324/21 Opp- Hari Nagar Gali No-1, Near Anaj Mandi Chowk, Gurugram, Haryana - 122001",
+  mapUrl: "https://maps.app.goo.gl/Xj7zsNtGZwvPj5Gk8?g_st=awb",
+  socialMedia: {
+    facebook: "https://www.facebook.com/share/16pzmAH1jX/",
+    instagram: "https://www.instagram.com/lbsi.t?igsh=MW40Yno0dHowZTJmNw==",
+    youtube: "https://youtube.com/@lbsit.rksir2008?si=ciEIQ86ND1UCCC7n"
+  }
+};
+
+export const HERO_CONTENT = {
+  title: "Your Journey to Excellence Start Here",
+  subtitle: "Join thousands of successful students who have achieved their dreams with our comprehensive courses and expert guidance.",
+  ctaText: "Explore Courses",
+  secondaryCtaText: "Download Brochure"
+};
+
+// Optimized course data with smaller images
+export const COURSES = [
+  {
+    id: 1,
+    name: "MS-Office",
+    logo: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Master Microsoft Office Suite including Word, Excel, PowerPoint. Essential skills for any professional environment.",
+    duration: "3 months",
+    features: ["Word Processing", "Spreadsheets", "Presentations"],
+    category: "Office",
+    // searchKeys: [""]
+  },
+  {
+    id: 2,
+    name: "Tally Prime (GST) with Accounting",
+    logo: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Learn complete accounting with Tally Prime including GST compliance, inventory management, and financial reporting.",
+    duration: "3 months",
+    
+
+    features: ["GST Compliance", "Inventory Management", "Financial Reports", "Tax Filing"],
+    category: "Accounting"
+  },
+  {
+    id: 3,
+    name: "Adobe Photoshop",
+    logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Master photo editing, digital art, and graphic design with Adobe Photoshop. Create stunning visuals and manipulate images professionally.",
+    duration: "1 Month",
+    
+    features: ["Photo Editing", "Digital Art", "Layer Management", "Color Correction"],
+    category: "Design"
+  },
+  {
+    id: 4,
+    name: "Adobe CorelDraw",
+    logo: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Learn vector graphics design with CorelDraw. Create logos, illustrations, and professional graphics for print and digital media.",
+    duration: "1 Month",
+    
+    features: ["Vector Graphics", "Logo Design", "Illustrations", "Print Design"],
+    category: "Design"
+  },
+  {
+    id: 5,
+    name: "Adobe Illustrator",
+    logo: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Master vector illustration and graphic design with Adobe Illustrator. Create scalable graphics, logos, and artwork.",
+    duration: "1 Month",
+    
+    features: ["Vector Illustration", "Logo Creation", "Typography", "Brand Design"],
+    category: "Design"
+  },
+  {
+    id: 6,
+    name: "Adobe InDesign",
+    logo: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Learn professional page layout and desktop publishing with Adobe InDesign. Design magazines, brochures, and books.",
+    duration: "1 month",
+    
+    features: ["Page Layout", "Typography", "Print Design", "Digital Publishing"],
+    category: "Design"
+  },
+  {
+    id: 7,
+    name: "Advanced Excel with AI & ChatGPT",
+    logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Master advanced Excel functions, data analysis, and integrate AI tools like ChatGPT for enhanced productivity and automation.",
+    duration: "2 months",
+    
+    
+    features: ["Advanced Formulas", "Data Analysis", "AI Integration", "Automation"],
+    category: "Technology"
+  },
+  {
+    id: 8,
+    name: "English Typing",
+    logo: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop&crop=center&q=75",
+    description: "Improve your typing speed and accuracy in both Hindi and English. Essential skill for data entry and office work.",
+    duration: "4 months",
+    
+    features: ["Speed Building", "Accuracy Training", "Bilingual Typing", "Practice Tests"],
+    category: "Office"
+  },
+  {
+    id: 9,
+    name: "AutoCAD 2D & 3D",
+    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center",
+    description: "Learn computer-aided design with AutoCAD. Create precise 2D drawings and 3D models for engineering and architecture.",
+    duration: "2 months",
+    
+    features: ["2D Drafting", "3D Modeling", "Technical Drawing", "Engineering Design"],
+    category: "Engineering"
+  },
+  {
+    id: 10,
+    name: "C & C++ Programming",
+    logo: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center",
+    description: "Master the fundamentals of programming with C and C++. Build strong foundation for software development and system programming.",
+    duration: "4 months",
+    
+    features: ["Programming Basics", "Data Structures", "Object-Oriented Programming", "System Programming"],
+    category: "Programming"
+  },
+  {
+    id: 11,
+    name: "Java Programming",
+    logo: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center",
+    description: "Learn Java programming from basics to advanced concepts. Build enterprise applications and understand object-oriented programming.",
+    duration: "2 months",
+    
+    features: ["OOP Concepts", "Enterprise Development", "Spring Framework", "Database Integration"],
+    category: "Programming"
+  },
+  {
+    id: 12,
+    name: "Python Programming",
+    logo: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center",
+    description: "Master Python programming for web development, data analysis, and automation. One of the most versatile programming languages.",
+    duration: "2 months",
+    
+    features: ["Data Analysis", "Automation", "Machine Learning Basics"],
+    category: "Programming"
+  },
+  {
+    id: 13,
+    name: "Advanced Internet",
+    logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=100&fit=crop&crop=center",
+    description: "Master advanced internet technologies, web services, cloud computing, and digital communication tools for modern business.",
+    duration: "1 month",
+    
+    features: ["Web Technologies", "Cloud Services", "Digital Communication", "Online Security"],
+    category: "Technology"
+  },
+  {
+    id: 14,
+    name: "Video Editing",
+    logo: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=100&h=100&fit=crop&crop=center",
+    description: "Learn professional video editing techniques using industry-standard software. Create engaging content for social media and marketing.",
+    duration: "1 month",
+    
+    features: ["Video Editing", "Color Grading", "Audio Editing", "Motion Graphics"],
+    category: "Media"
+  },
+  {
+    id: 15,
+    name: "Data Analytics",
+    logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop&crop=center",
+    description: "Learn data analysis, visualization, and business intelligence. Work with real datasets and make data-driven decisions.",
+    duration: "6 months",
+    
+    features: ["Data Analysis", "Visualization", "Statistical Analysis", "Business Intelligence"],
+    category: "Analytics"
+  },
+  {
+    id: 18,
+    name: "Revit",
+    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center",
+    description: "Learn Building Information Modeling (BIM) with Autodesk Revit. Design and document building projects with precision.",
+    duration: "2 months",
+    
+    features: ["BIM Modeling", "Architectural Design", "MEP Systems", "Project Documentation"],
+    category: "Architecture"
+  },
+  {
+    id: 19,
+    name: "NX-CAD",
+    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center",
+    description: "Master advanced CAD design with Siemens NX. Professional 3D modeling and simulation for engineering applications.",
+    duration: "2 months",
+  
+    features: ["3D Modeling", "Simulation", "Engineering Design", "Manufacturing"],
+    category: "Engineering"
+  },
+  {
+    id: 20,
+    name: "Stenography Course",
+    logo: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=100&h=100&fit=crop&crop=center",
+    description: "Learn shorthand writing and stenography for court reporting, secretarial work, and fast note-taking in professional settings.",
+    duration: "3 months",
+    
+    features: ["Shorthand Writing", "Speed Building", "Court Reporting", "Professional Documentation"],
+    category: "Office"
+  },
+  {
+    id: 21,
+    name: "Spoken English",
+    logo: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=100&h=100&fit=crop&crop=center",
+    description: "Improve your English speaking skills, pronunciation, and confidence. Essential for career growth and communication.",
+    duration: "3 months",
+ 
+    features: ["Speaking Practice", "Pronunciation", "Grammar", "Confidence Building"],
+    category: "Language"
+  },
+  {
+    id: 22,
+    name: "Computer Hardware",
+    logo: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=100&h=100&fit=crop&crop=center",
+    description: "Learn computer hardware assembly, troubleshooting, and maintenance. Understand components and repair techniques.",
+    duration: "3 months",
+   
+    features: ["Hardware Assembly", "Troubleshooting", "Component Knowledge", "Repair Techniques"],
+    category: "Hardware"
+  }
+];
+
+export const NAVIGATION = [
+  { name: 'Home', href: '/' },
+  { name: 'Courses', href: '/courses' },
+  // { name: 'Books', href: '/books' }, add video in future
+  { name: 'Contact', href: '/contact' }
+];
+
+// Site statistics
+export const SITE_STATS = {
+  studentsEnrolled: {
+    count: "1000+",
+    label: "Students Enrolled",
+    icon: "AcademicCapIcon",
+    color: "primary"
+  },
+  coursesAvailable: {
+    count: COURSES.length.toString(),
+    label: "Courses Available",
+    icon: "BookOpenIcon",
+    color: "secondary"
+  },
+  successRate: {
+    count: "96%",
+    label: "Success Rate",
+    icon: "UsersIcon",
+    color: "primary"
+  }
+};
+
+export const FOOTER_LINKS = {
+  quickLinks: [
+    { name: 'Courses', href: '/courses' },
+    { name: 'Books', href: '/books' },
+    { name: 'Contact', href: '/contact' }
+  ],
+  courses: [
+    { name: 'Web Development', href: '/courses#web-development' },
+    { name: 'Digital Marketing', href: '/courses#digital-marketing' },
+    { name: 'Data Science', href: '/courses#data-science' },
+    { name: 'Graphic Design', href: '/courses#graphic-design' }
+  ],
+  support: [
+    { name: 'Help Center', href: '/help' },
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms of Service', href: '/terms' },
+    { name: 'FAQ', href: '/faq' }
+  ]
+};
