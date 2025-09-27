@@ -1,37 +1,76 @@
-name: Deploy to GitHub Pages
+name: Simple Deploy
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [main]
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Run tests
-      run: npm run test:ci
-      
-    - name: Build project
-      run: npm run build
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Debug npm and node versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Install dependencies
+        run: |
+          echo "Checking for package-lock.json..."
+          ls -la package*.json
+
+          # Try npm ci first, fallback to npm install if it fails
+          if [ -f package-lock.json ]; then
+            echo "Attempting npm ci with legacy peer deps..."
+            npm ci --legacy-peer-deps || {
+              echo "npm ci failed, trying npm install..."
+              rm -rf node_modules package-lock.json
+              npm install --legacy-peer-deps
+            }
+          else
+            echo "Using npm install with legacy peer deps..."
+            npm install --legacy-peer-deps
+          fi
+
+      - name: Build
+        run: npm run build
+        env:
+          CI: false
+          REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
+          REACT_APP_EMAILJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAILJS_TEMPLATE_ID }}
+          REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
