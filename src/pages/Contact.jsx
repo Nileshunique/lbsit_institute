@@ -60,6 +60,7 @@ const Contact = () => {
 
       if (result.status === 200) {
         setSubmitStatus('success');
+        alert("We will connect you sortly.")
         setFormData({
           name: '',
           email: '',
