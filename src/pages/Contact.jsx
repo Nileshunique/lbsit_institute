@@ -22,7 +22,6 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    subject: '',
     message: '',
     course: '',
   });
@@ -53,7 +52,6 @@ const Contact = () => {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
-          subject: formData.subject,
           message: formData.message,
           course: formData.course,
           to_email: SITE_INFO.email,
@@ -66,7 +64,6 @@ const Contact = () => {
           name: '',
           email: '',
           phone: '',
-          subject: '',
           message: '',
           course: '',
         });
@@ -218,25 +215,6 @@ const Contact = () => {
                         <option value="Other">Other</option>
                       </select>
                     </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
-                      placeholder="What is this regarding?"
-                    />
                   </div>
 
                   <div>
