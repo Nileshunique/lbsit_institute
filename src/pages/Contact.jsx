@@ -49,8 +49,8 @@ const Contact = () => {
         serviceId, // Replace with your service ID
         templateId, // Replace with your template ID
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           phone: formData.phone,
           message: formData.message,
           course: formData.course,
@@ -60,7 +60,7 @@ const Contact = () => {
 
       if (result.status === 200) {
         setSubmitStatus('success');
-        alert("We will connect you sortly.")
+        alert("Thank you, We will connect you sortly.")
         setFormData({
           name: '',
           email: '',
