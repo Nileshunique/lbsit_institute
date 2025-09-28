@@ -16,7 +16,7 @@ import './App.css';
 function App() {
   return (
     <HelmetProvider>
-      <Router basename="/lbsit_institute">
+      <Router basename="/">
         <div className="App">
           <PerformanceMonitor />
           <Header />

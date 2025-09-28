@@ -33,7 +33,7 @@ jobs:
         run: npm ci
         
       - name: Build project
-        run: npm run build:github && npm run build
+        run: npm run build
         env:
           CI: false
           REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
