@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=/ react-scripts build",
+    "build:github": "PUBLIC_URL=/lbsit_institute react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false --passWithNoTests",
     "test:ci": "react-scripts test --coverage --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
