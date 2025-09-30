@@ -11,6 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import NotFound from './pages/NotFound';
 import PerformanceMonitor from './components/PerformanceMonitor';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <HelmetProvider>
       <Router basename="/">
         <div className="App">
+          <ScrollToTop />
           <PerformanceMonitor />
           <Header />
           <main>
