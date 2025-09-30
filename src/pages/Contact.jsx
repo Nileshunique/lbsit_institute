@@ -40,6 +40,16 @@ const Contact = () => {
     }
   }, [submitStatus]);
 
+  // Group courses by category
+  const groupedCourses = COURSES.reduce((groups, course) => {
+    const category = course.category || 'Other';
+    if (!groups[category]) {
+      groups[category] = [];
+    }
+    groups[category].push(course);
+    return groups;
+  }, {});
+
   const validateForm = () => {
     const newErrors = {};
 
@@ -336,12 +346,23 @@ const Contact = () => {
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base hover:border-gray-400 transition-colors"
                       >
                         <option value="">Select a course (optional)</option>
-                        {COURSES.map((course, index) => (
-                          <option key={index} value={course.name}>
-                            {course.name}
-                          </option>
-                        ))}
-                        <option value="Other">Other</option>
+                        {Object.entries(groupedCourses).map(
+                          ([category, courses]) => (
+                            <optgroup
+                              key={category}
+                              label={`${category} Courses`}
+                            >
+                              {courses.map(course => (
+                                <option key={course.id} value={course.name}>
+                                  {course.name}
+                                </option>
+                              ))}
+                            </optgroup>
+                          )
+                        )}
+                        <optgroup label="Other">
+                          <option value="Other">Other</option>
+                        </optgroup>
                       </select>
                     </div>
                   </div>
