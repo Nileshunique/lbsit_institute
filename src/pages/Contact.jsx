@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import {
@@ -25,42 +25,112 @@ const Contact = () => {
     message: '',
     course: '',
   });
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  // const categories = new Set(COURSES.map(course => course.category));
+  const successMessageRef = useRef(null);
+
+  // Auto-dismiss success message after 15 seconds
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 15000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
+      newErrors.name = 'Name can only contain letters and spaces';
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Phone validation (optional but if provided, should be valid)
+    if (
+      formData.phone.trim() &&
+      !/^[+]?[0-9\s\-()]{10,15}$/.test(formData.phone.trim())
+    ) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    } else if (formData.message.trim().length > 1000) {
+      newErrors.message = 'Message must be less than 1000 characters';
+    }
+
+    return newErrors;
+  };
 
   const handleChange = e => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: '',
+      });
+    }
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
+
+    // Validate form
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      // Scroll to first error field
+      const firstErrorField = Object.keys(formErrors)[0];
+      const errorElement = document.getElementById(firstErrorField);
+      if (errorElement) {
+        errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        errorElement.focus();
+      }
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
+    setErrors({});
 
     try {
       // Initialize EmailJS with your public key
-      emailjs.init(publicKey); // Replace with your actual public key
+      emailjs.init(publicKey);
 
-      const result = await emailjs.send(
-        serviceId, // Replace with your service ID
-        templateId, // Replace with your template ID
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          course: formData.course,
-          to_email: SITE_INFO.email,
-        }
-      );
+      const result = await emailjs.send(serviceId, templateId, {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        message: formData.message.trim(),
+        course: formData.course,
+        to_email: SITE_INFO.email,
+      });
 
       if (result.status === 200) {
         setSubmitStatus('success');
-        alert("Thank you, We will connect you sortly.")
         setFormData({
           name: '',
           email: '',
@@ -68,6 +138,16 @@ const Contact = () => {
           message: '',
           course: '',
         });
+
+        // Scroll to success message
+        setTimeout(() => {
+          if (successMessageRef.current) {
+            successMessageRef.current.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+            });
+          }
+        }, 100);
       }
     } catch (error) {
       console.error('EmailJS error:', error);
@@ -85,7 +165,7 @@ const Contact = () => {
         keywords="contact, admission, inquiry, phone, email, address, LBSIT institute"
       />
 
-      <div className="min-h-screen section-bg-light">
+      <div className="section-bg-light">
         {/* Header Section */}
         <section className="bg-primary-600 text-white py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +183,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Form and Info */}
-        <section className="py-12 sm:py-16">
+        <section className="py-8 sm:py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
               {/* Contact Form */}
@@ -113,22 +193,40 @@ const Contact = () => {
                 </h2>
 
                 {submitStatus === 'success' && (
-                  <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-lg flex items-center space-x-3">
-                    <CheckCircleIcon className="h-5 w-5 text-primary-600" />
-                    <p className="text-primary-800">
-                      Thank you! Your message has been sent successfully. We'll
-                      get back to you soon.
-                    </p>
+                  <div
+                    ref={successMessageRef}
+                    className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start space-x-3 animate-pulse"
+                  >
+                    <CheckCircleIcon className="h-6 w-6 text-green-600 mt-0.5 flex-shrink-0" />
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-green-800 mb-1">
+                        Message Sent Successfully!
+                      </h4>
+                      <p className="text-green-700 text-sm">
+                        Thank you for contacting us! We've received your message
+                        and will get back to you within 24 hours.
+                      </p>
+                      <p className="text-green-600 text-xs mt-2">
+                        This message will disappear automatically in a few
+                        seconds.
+                      </p>
+                    </div>
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3">
-                    <ExclamationCircleIcon className="h-5 w-5 text-red-600" />
-                    <p className="text-red-800">
-                      Sorry, there was an error sending your message. Please try
-                      again or contact us directly.
-                    </p>
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start space-x-3">
+                    <ExclamationCircleIcon className="h-6 w-6 text-red-600 mt-0.5 flex-shrink-0" />
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-red-800 mb-1">
+                        Error Sending Message
+                      </h4>
+                      <p className="text-red-700 text-sm">
+                        Sorry, there was an error sending your message. Please
+                        try again or contact us directly using the information
+                        below.
+                      </p>
+                    </div>
                   </div>
                 )}
 
@@ -136,7 +234,7 @@ const Contact = () => {
                   onSubmit={handleSubmit}
                   className="space-y-4 sm:space-y-6"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 gap-4 sm:gap-6">
                     <div>
                       <label
                         htmlFor="name"
@@ -151,9 +249,19 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                        className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base transition-colors ${
+                          errors.name
+                            ? 'border-red-300 bg-red-50'
+                            : 'border-gray-300 hover:border-gray-400'
+                        }`}
                         placeholder="Your full name"
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-sm text-red-600 flex items-center">
+                          <ExclamationCircleIcon className="h-4 w-4 mr-1" />
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label
@@ -169,13 +277,23 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                        className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base transition-colors ${
+                          errors.email
+                            ? 'border-red-300 bg-red-50'
+                            : 'border-gray-300 hover:border-gray-400'
+                        }`}
                         placeholder="your.email@example.com"
                       />
+                      {errors.email && (
+                        <p className="mt-1 text-sm text-red-600 flex items-center">
+                          <ExclamationCircleIcon className="h-4 w-4 mr-1" />
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 gap-4 sm:gap-6">
                     <div>
                       <label
                         htmlFor="phone"
@@ -189,9 +307,19 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
-                        placeholder={SITE_INFO.phone}
+                        className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base transition-colors ${
+                          errors.phone
+                            ? 'border-red-300 bg-red-50'
+                            : 'border-gray-300 hover:border-gray-400'
+                        }`}
+                        placeholder="+1 (555) 123-4567"
                       />
+                      {errors.phone && (
+                        <p className="mt-1 text-sm text-red-600 flex items-center">
+                          <ExclamationCircleIcon className="h-4 w-4 mr-1" />
+                          {errors.phone}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label
@@ -205,9 +333,9 @@ const Contact = () => {
                         name="course"
                         value={formData.course}
                         onChange={handleChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base hover:border-gray-400 transition-colors"
                       >
-                        <option value="">Select a course</option>
+                        <option value="">Select a course (optional)</option>
                         {COURSES.map((course, index) => (
                           <option key={index} value={course.name}>
                             {course.name}
@@ -224,6 +352,9 @@ const Contact = () => {
                       className="block text-sm font-medium text-gray-700 mb-2"
                     >
                       Message *
+                      <span className="text-xs text-gray-500 ml-2">
+                        ({formData.message.length}/1000 characters)
+                      </span>
                     </label>
                     <textarea
                       id="message"
@@ -232,17 +363,57 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
-                      placeholder="Tell us more about your inquiry..."
+                      maxLength={1000}
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base transition-colors resize-vertical ${
+                        errors.message
+                          ? 'border-red-300 bg-red-50'
+                          : 'border-gray-300 hover:border-gray-400'
+                      }`}
+                      placeholder="Tell us more about your inquiry, course preferences, or any questions you have..."
                     ></textarea>
+                    {errors.message && (
+                      <p className="mt-1 text-sm text-red-600 flex items-center">
+                        <ExclamationCircleIcon className="h-4 w-4 mr-1" />
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+                    className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base flex items-center justify-center space-x-2 transition-all duration-200 hover:shadow-lg"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? (
+                      <>
+                        <svg
+                          className="animate-spin h-4 w-4 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <EnvelopeIcon className="h-4 w-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
@@ -350,7 +521,7 @@ const Contact = () => {
         </section>
 
         {/* Branches Section */}
-        <section className="py-12 sm:py-16 bg-gray-50">
+        <section className="py-8 sm:py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -402,7 +573,7 @@ const Contact = () => {
         </section>
 
         {/* Map Section */}
-        <section className="py-12 sm:py-16 bg-white">
+        <section className="py-8 sm:py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
